@@ -2,74 +2,83 @@
     <div class="container">
         <div class="header">Enter details to start your journey now!</div>
         <hr>
-        <form #aadharform = "ngForm" (ngSubmit)="validate()">
+        <form [formGroup]="aadharForm">
             <div class="row">
                 <div class="col-md gy-2">
                     <input
-                        required
                         type="text"
                         class="form-control"
-                        name="mobileNo" 
+                        name="mobile" 
                         placeholder="Mobile Number registered with Aadhaar" 
-                        [(ngModel)]="mobileNo"
-                    >
+                        formControlName="mobile"
+                    />
                 </div>
                 <div class="col-md gy-2">
-                    <input 
-                        required    
+                    <input   
                         type="email" 
                         class="form-control"
                         name="email" 
-                        placeholder="Email address" 
-                        [(ngModel)]="email"
-                    >
+                        placeholder="Email address"
+                        formControlName="email"
+                    />
                 </div>
             </div>
             <div class="row">
                 <div class="col-md gy-2">
                     <input
-                        required 
                         type="text" 
                         class="form-control" 
-                        name="PANcard" 
+                        name="PAN" 
                         placeholder="Permanent Account Number(PAN)"
-                        [(ngModel)]="PANcard"
+                        formControlName="PAN"
+                        
                     >
                 </div>
                 <div class="col-md gy-2">
-                    <input 
-                        required
+                    <input
                         type="text" 
                         class="form-control" 
                         name="Aadhar" 
                         placeholder="12-digit Aadhaar number" 
-                        [(ngModel)]="Aadhar"
+                        formControlName="Aadhar"
                     >
                 </div>
             </div>
+
             <button 
                 class="btn button btn-sm me-5 float-end" 
                 name="submit" 
                 type="submit" 
-                ngSubmit="validate()">
+                [disabled]="aadharForm.invalid">
                 Verify Aadhaar
-            </button>
-
+            </button>   
+    
         </form>
+
         <div class="header small-pad">Please enter your <strong>professional & personal details</strong> </div>
         <hr>
-        <form>
+    <form [formGroup]="regForm">
             <div class="row">
                 <div class="col-md gy-2">
-                    <select name="" class="form-select" id="">
-                        <option value="" disabled selected hidden>Occupation</option>
-                        <option value="1">Service</option>
-                        <option value="2">Business</option>
-                        <option value="3">Self</option>
+                    <select
+                        name="occupation"
+                        type='select'
+                        class="form-select" 
+                        formControlName="occupation"
+                        >
+                            <option value="" disabled selected hidden>Occupation</option>
+                            <option value="1">Service</option>
+                            <option value="2">Business</option>
+                            <option value="3">Self</option>
                     </select>
                 </div>
                 <div class="col-md gy-2">
-                    <select name="" class="form-select" id="">
+                    <select 
+                        name="SOI" 
+                        class="form-select" 
+                        type='select'
+                        formControlName="SOI"
+                        >
                         <option value="" disabled selected hidden>Source of Income</option>
                         <option value="1">Salaried</option>
                         <option value="2">Business</option>
@@ -80,43 +89,83 @@
             </div>
             <div class="row">
                 <div class="col-md gy-2">
-                    <input type="text" class="form-control" placeholder="Gross annual income in ₹">
+                    <input 
+                        type="text" 
+                        class="form-control" 
+                        placeholder="Gross annual income in ₹"
+                        formControlName="annualIncome"
+                        >
                 </div>
                 <div class="col-md gy-2">
-                    <input type="text" class="form-control" placeholder="Company Name/Business Name">
+                    <input 
+                        type="text" 
+                        class="form-control" 
+                        placeholder="Company Name/Business Name"
+                        formControlName="companybusinessName"
+                        >
                 </div>
             </div>
-        </form>
 
-        
-        <div class="header small-pad">Select type of <strong>product</strong></div>
-        <hr>
-        <form action="">
-            <div class="row">
-                <div class="col-md gy-2">
-                <input class="form-check-input position-static left-radio" type="radio" name="blankRadio" id="blankRadio1" value="option1" aria-label="..."><p class="radiotext">₹25,000 Savings Account</p>
+            <div class="header small-pad">Select type of <strong>product</strong></div>
+            <hr>
+                <div class="row">
+                    <div class="col-md gy-2">
+                        <input 
+                        class="form-check-input position-static left-radio" 
+                        type="radio" 
+                        name="accType"  
+                        value="25,000" 
+                        formControlName="accType"
+                        >
+                            <p class="radiotext">₹25,000 Savings Account</p>
+                    </div>
+                    <div class="col-md gy-2">
+                    <input 
+                        class="form-check-input position-static right-radio" 
+                        type="radio" 
+                        name="accType" 
+                        value="10,000" 
+                        formControlName="accType"
+                        >
+                            <p class="radiotext">₹10,000 Savings Account</p>
+                    </div>
                 </div>
-                <div class="col-md gy-2">
-                <input class="form-check-input position-static right-radio" type="radio" name="blankRadio" id="blankRadio1" value="option1" aria-label="..."><p class="radiotext">₹10,000 Savings Account</p>
-              </div>
-            </div>
             
-        </form>
+        
         <div class="header">Disclaimer</div>
+        
         <hr>
         <div class="disclaimer-content">
-            <p>I confirm that I am not a politically exposed person nor related to one (required as per RBI guideline). For any change, I will visit the nearest branch and update my details.</p>
+            <p>
+                I confirm that I am not a politically exposed person nor related to one (required as per RBI guideline). For any change, I will visit the nearest branch and update my details.
+            </p>
         </div>
+        
         <div class="disclaimer-content">
-            <p>I confirm that I am an Indian citizen, born in India and a tax resident of India (required as per RBI guideline). For any change, I will visit the nearest branch and update my details.</p>
+            <p>
+                I confirm that I am an Indian citizen, born in India and a tax resident of India (required as per RBI guideline). For any change, I will visit the nearest branch and update my details.
+            </p>
         </div>
+        
         <div class="disclaimer-content">
-        <form action="">
-            <p><input type="checkbox"> I accept all <a href="">Terms and Conditions</a> related to Laxmi Funds Bank.</p>
-        </form>
-        <button class="btn button-2 btn-md me-5 float-end">Proceed to Open Account</button>
-    
-    </div>
+            <p>
+                <input 
+                    type="checkbox" 
+                    name="termsandCond" 
+                    formControlName="termsAndCond"> 
+                        I accept all <a href="" routerLink='/pnf'>Terms and Conditions</a> related to Laxmi Funds Bank.
+            </p>
+        </div>
+        
+        <button
+            class="btn button-2 btn-md me-5 float-end" 
+            name="submit" 
+            type="submit" 
+            [disabled]="regForm.invalid">
+                Proceed to Open Account
+        </button>
+    </form>
+        
     <div class="pad"></div>
     </div>
     <div class="pad"></div>

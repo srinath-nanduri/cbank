@@ -1,6 +1,6 @@
-import { formatCurrency } from '@angular/common';
+import { formatCurrency, NgIf } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import {NgForm} from '@angular/forms'
+import {FormBuilder,FormGroup,Validator, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-reg-form',
@@ -9,17 +9,28 @@ import {NgForm} from '@angular/forms'
 })
 export class RegFormComponent implements OnInit {
 
-  mobileNo =''
-  email=''
-  PANcard = ''
-  Aadhar=''
-  constructor() { }
+  aadharForm:FormGroup
+  regForm:FormGroup
+  constructor(private formBuilder:FormBuilder) {
+    this.aadharForm= this.formBuilder.group({
+      email:['',[Validators.required,Validators.email]],
+      mobile:['',[Validators.required,Validators.pattern(/^\d{10}$/)]],
+      PAN:['',[Validators.required]],
+      Aadhar:['',[Validators.required,Validators.pattern(/^[0-9]{12}$/)]]
+    })
+
+    this.regForm=this.formBuilder.group({
+      occupation:['',Validators.required],
+      SOI:['',Validators.required],
+      annualIncome:['',Validators.required],
+      companybusinessName:['',Validators.required],
+      accType:['',Validators.required],
+      termsAndCond:['',Validators.requiredTrue]
+    })
+   }
 
   ngOnInit(): void {
   }
 
-  validate(){
-    document.write(this.mobileNo + "" + this.email + "" + this.PANcard + "" + this.Aadhar)
-  }
 
 }
