@@ -26,7 +26,7 @@ section{
     padding-left:1rem;
     text-align: left;
     text-decoration: black;
-    font-size: 18px;
+    font-size: 20px;
 }
 
 hr{
@@ -40,4 +40,22 @@ hr{
 
 .card-details{
     background-color: #EBECF0;
+}
+
+h5{
+    font-size: 16px;
+}
+.img{
+    width: 2%;
+    height: 2%;
+    margin-left: 1rem;
+}
+.edit-stuff{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+.hidden{
+    display: none;
 }

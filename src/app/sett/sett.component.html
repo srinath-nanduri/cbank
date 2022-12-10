@@ -2,25 +2,47 @@
     <div class="container">
         <div class="header">Profile</div>
         <div class="profile-content">
-            Name, email,phone number,Customer ID,if time address
+            <h3>Name</h3> 
+            <h4></h4> email,
+            <h4></h4>Customer ID
         </div>
-        <hr>
+        
         <div class="card-details">
+            <hr>
             <div class="header">Card Details</div>
-            Manage Cards diff page
+            <div class="edit-stuff">
+                <h5>Change Card Limit</h5> <img src="./assets/editbutton.png" class="img" alt="" ng-click="showDiv=true">
+                <div ng-class = "{'hidden':!showDiv}">
+                    <p>Hello</p>
+                </div>
+            </div>
+            <div class="edit-stuff">
+                <h5>Set PIN</h5> <img src="./assets/editbutton.png" class="img" alt="">
+            </div>
+            <div class="edit-stuff">
+                <h5>Block Card</h5> <img src="./assets/editbutton.png" class="img" alt="">
+            </div>
+            <hr>
         </div>
-        <hr>
+       
         <div class="header">Security</div>
         <div class="Security">
-            Change password
-            Change email
-            Change phone number 
-
+            <div class="edit-stuff">
+                <h5>Change Password</h5> <img src="./assets/editbutton.png" class="img" alt="">
+            </div>
+            <div class="edit-stuff">
+                <h5>Change Email</h5> <img src="./assets/editbutton.png" class="img" alt="">
+            </div>
+            <div class="edit-stuff">
+                <h5>Change Mobile Number</h5> <img src="./assets/editbutton.png" class="img" alt="">
+            </div>
+          
+         
         </div>
         <hr>
     <div>
     <button class="btn btn-danger" (click)="logout()" style="cursor: pointer;">Logout</button>
-    <!-- {{d}} -->
+    
     </div>
     </div>
 </section>
@@ -31,4 +53,4 @@
 <br>
 <br>
 <br>
-<app-footer></app-footer>
+<!-- <app-footer></app-footer> -->
