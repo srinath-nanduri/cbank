@@ -49,13 +49,17 @@ h5{
     width: 2%;
     height: 2%;
     margin-left: 1rem;
+    
 }
+
 .edit-stuff{
     display: flex;
     justify-content: center;
     margin-bottom: 1rem;
+    text-align: center;
 }
 
 .hidden{
-    display: none;
+    margin-right: 5rem;
+    padding-right: 5rem;
 }

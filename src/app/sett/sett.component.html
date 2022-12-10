@@ -11,8 +11,9 @@
             <hr>
             <div class="header">Card Details</div>
             <div class="edit-stuff">
-                <h5>Change Card Limit</h5> <img src="./assets/editbutton.png" class="img" alt="" ng-click="showDiv=true">
-                <div ng-class = "{'hidden':!showDiv}">
+                <h5>Change Card Limit</h5><img src="./assets/editbutton.png" class="img" alt="" (click)="toggleDisplay()">
+                <div [hidden]="showDiv" class="hidden">
+                    <br>
                     <p>Hello</p>
                 </div>
             </div>

@@ -15,6 +15,10 @@ export class SettComponent implements OnInit {
   }
 
   d = '';
+  showDiv=true
+  toggleDisplay(){
+    this.showDiv=!this.showDiv;
+  }
 
   logout(){
     this.cookSer.set('logcorr', 'false');
