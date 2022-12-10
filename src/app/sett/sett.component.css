@@ -34,7 +34,7 @@ hr{
     text-align: center;
     }
 
-.hell{ 
+.pad{ 
            padding-top: 10rem;
     }
 
@@ -52,14 +52,33 @@ h5{
     
 }
 
+.img:hover{
+    cursor: pointer;
+}
+
 .edit-stuff{
     display: flex;
     justify-content: center;
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
+    margin-top:2rem;
     text-align: center;
 }
 
 .hidden{
+    margin-top: 2rem;
     margin-right: 5rem;
     padding-right: 5rem;
+}
+
+.button{
+    margin-bottom: 3rem;
+}
+
+.button-1{
+    color: white;
+    background-color: gray;
+}
+
+.button-1:hover{
+    background-color: black;
 }

@@ -11,14 +11,33 @@
             <hr>
             <div class="header">Card Details</div>
             <div class="edit-stuff">
-                <h5>Change Card Limit</h5><img src="./assets/editbutton.png" class="img" alt="" (click)="toggleDisplay()">
-                <div [hidden]="showDiv" class="hidden">
-                    <br>
-                    <p>Hello</p>
+                <h5>Change Card Limit</h5><img src="./assets/editbutton.png" class="img" id='' alt="" (click)="toggleDisplay(0)">
+                <div [hidden]="showDiv[0]" class="hidden">
+                    
+                    <p>Current Limit : </p>
+                    <form [formGroup]="limitForm" id="1">
+                    <p>New Limit : 
+                    <input type="range" id="range" min=1000 max=50000 step="1000" formControlName="newLimit">
+                    {{limitForm.get('newLimit')?.value}}
+                    </p>
+                    <p> Confirm PIN :
+                    <input type="password" formControlName="PIN">
+                    </p>
+                    <button
+                    class="btn button-1 btn-sm me-5 float-end" 
+                    name="submit" 
+                    type="submit" 
+                    [disabled]="limitForm.invalid">
+                        Proceed to Open Account
+                    </button>
+                    </form>
                 </div>
             </div>
             <div class="edit-stuff">
-                <h5>Set PIN</h5> <img src="./assets/editbutton.png" class="img" alt="">
+                <h5>Set PIN</h5> <img src="./assets/editbutton.png" class="img" alt="" (click)="toggleDisplay(1)">
+                <div [hidden]="showDiv[1]" class="hidden">
+                    <p>Hello</p>
+                </div>
             </div>
             <div class="edit-stuff">
                 <h5>Block Card</h5> <img src="./assets/editbutton.png" class="img" alt="">
@@ -42,11 +61,14 @@
         </div>
         <hr>
     <div>
-    <button class="btn btn-danger" (click)="logout()" style="cursor: pointer;">Logout</button>
+    <button class="btn btn-danger button" (click)="logout()" style="cursor: pointer;">Logout</button>
     
     </div>
     </div>
+    
 </section>
+<div class="pad"></div>
+<div class="pad"></div>
 
 
 <!-- ****************    FOOTER    **************** -->
