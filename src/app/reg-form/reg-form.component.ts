@@ -9,11 +9,19 @@ import { Aadhar, HttpClientService } from '../http-client.service';
   styleUrls: ['./reg-form.component.css']
 })
 export class RegFormComponent implements OnInit {
-
+// form and service decl
   aadharForm:FormGroup
   regForm:FormGroup
   accForm:FormGroup
   aadhar:Aadhar[]=[]
+
+  //aadharForm vars
+  isVerified= false
+
+  //regForm vars
+  isRegistered = false
+
+
   constructor(private formBuilder:FormBuilder, private httpClientService:HttpClientService) {
     this.aadharForm= this.formBuilder.group({
       email:['',[Validators.required,Validators.email]],
@@ -36,20 +44,31 @@ export class RegFormComponent implements OnInit {
       companybusinessName:['',Validators.required],
       termsAndCond:['',Validators.requiredTrue]
     })
+    
+    
+    
 
     this.accForm=this.formBuilder.group({
       accType:['',Validators.required]
     })
    }
 
+  
+
   ngOnInit(): void {
   }
-
+  
+  
   verifyAadhar() {
     this.httpClientService.valAadhar().subscribe(response => {
       // Process the response data here
       this.aadhar = response;
-      console.log(this.aadhar);
+      let aadharValue = this.aadharForm.get('Aadhar')?.value;
+      let mobileValue = this.aadharForm.get('mobile')?.value;
+      this.isVerified = this.aadhar.some(obj => obj.aadhar==aadharValue && obj.mobile==mobileValue)
+      console.log(this.isVerified)
+      console.log(aadharValue)
+      console.log(this.aadhar)
     });
   }
 

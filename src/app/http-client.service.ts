@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http'
+import { Observable } from 'rxjs';
 
 export class Aadhar{
   constructor(
@@ -15,7 +16,7 @@ export class Aadhar{
 export class HttpClientService {
 
   constructor(private httpClient:HttpClient) { }
-valAadhar(){
+valAadhar():Observable<Aadhar[]>{
   return this.httpClient.get<Aadhar[]>('http://localhost:4141/Aadhar')
 }
 }

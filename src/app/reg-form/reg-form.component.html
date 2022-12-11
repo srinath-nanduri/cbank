@@ -56,6 +56,7 @@
             </button>   
     
         </form>
+        <div class="hidden" [hidden]="!isVerified">
 
         <div class="header small-pad">Please enter your <strong> personal & professional details</strong> </div>
         <hr>
@@ -213,6 +214,7 @@
                     Proceed to Open Account
             </button>
         </form>
+    </div>
             
         <form [formGroup]="accForm">
             <div class="header small-pad"> Last Step ! Select type of <strong>product</strong></div>
