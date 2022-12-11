@@ -15,20 +15,22 @@
                 <div [hidden]="showDiv[0]" class="hidden">
                     
                     <p>Current Limit : </p>
-                    <form [formGroup]="limitForm" id="1">
-                    <p>New Limit : 
+                    <form [formGroup]="limitForm">
+                     
+                    <p> Confirm PIN :
+                        <input type="password" formControlName="PIN">
+                        </p>
+                    <p>New Limit :
                     <input type="range" id="range" min=1000 max=50000 step="1000" formControlName="newLimit">
                     {{limitForm.get('newLimit')?.value}}
                     </p>
-                    <p> Confirm PIN :
-                    <input type="password" formControlName="PIN">
-                    </p>
+                    
                     <button
-                    class="btn button-1 btn-sm me-5 float-end" 
+                    class="btn button-1 btn-sm" 
                     name="submit" 
                     type="submit" 
                     [disabled]="limitForm.invalid">
-                        Proceed to Open Account
+                        Submit
                     </button>
                     </form>
                 </div>
@@ -36,11 +38,42 @@
             <div class="edit-stuff">
                 <h5>Set PIN</h5> <img src="./assets/editbutton.png" class="img" alt="" (click)="toggleDisplay(1)">
                 <div [hidden]="showDiv[1]" class="hidden">
-                    <p>Hello</p>
+                    <form [formGroup]="setPin">
+                    <p>Enter PIN : 
+                        <input type="password" formControlName="currPin">
+                    </p>
+                    <p>
+                    New PIN :
+                    <input type="password" formControlName="newPin">
+                    </p>
+                    
+                    <button
+                    class="btn button-1 btn-sm float-end" 
+                    name="submit" 
+                    type="submit" 
+                    [disabled]="setPin.invalid">
+                        Submit
+                    </button>
+                    </form>
                 </div>
             </div>
             <div class="edit-stuff">
-                <h5>Block Card</h5> <img src="./assets/editbutton.png" class="img" alt="">
+                <h5>Block/Unblock Card</h5> <img src="./assets/editbutton.png" class="img" alt="" (click)="toggleDisplay(2)">
+                <div [hidden]="showDiv[2]" class="hidden">
+                    <form [formGroup]="blockCard">
+                        <p>Enter PIN : 
+                            <input type="password" formControlName="currPin">
+                        </p>
+                        <button
+                    class="btn button-1 btn-sm float-end" 
+                    name="submit" 
+                    type="submit" 
+                    [disabled]="blockCard.invalid">
+                        Submit
+                    </button>
+
+                    </form>
+                </div>
             </div>
             <hr>
         </div>

@@ -27,6 +27,8 @@ import { TransactionsComponent } from './cust-ser/transactions/transactions.comp
 import { FeedbackComponent } from './cust-ser/feedback/feedback.component';
 import { IssueFormComponent } from './cust-ser/issue-form/issue-form.component';
 import { FooterComponent } from './footer/footer.component';
+import { HttpClientModule } from '@angular/common/http';
+import { HttpClientService } from './http-client.service';
 
 @NgModule({
   declarations: [
@@ -56,9 +58,11 @@ import { FooterComponent } from './footer/footer.component';
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
+    HttpClientModule,
     RouterModule.forRoot(routes),
+
   ],
-  providers: [LogInService, CookieService],
+  providers: [LogInService, CookieService,HttpClientService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

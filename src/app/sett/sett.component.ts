@@ -10,19 +10,19 @@ import {Form, FormBuilder,FormGroup,Validators} from '@angular/forms';
   styleUrls: ['./sett.component.css']
 })
 export class SettComponent implements OnInit {
-  showDiv=[true,true]
+  showDiv=[true,true,true]
   limitForm:FormGroup
   setPin:FormGroup
   blockCard:FormGroup
   constructor(private cookSer:CookieService, private _router: Router,private formBuilder:FormBuilder) { 
     this.limitForm=formBuilder.group({
       newLimit:['1000',Validators.required],
-      PIN:['',Validators.required]
+      PIN:['',Validators.required,Validators.pattern(/^\d{4}$/)]
     })
 
     this.setPin=formBuilder.group({
-      currPin:['',Validators.required],
-      newPin:['',Validators.required,Validators.pattern(/^\d{4}$/)]
+      currPin:['',Validators.required,Validators.pattern(/^\d{4}$/)],
+      newPin:['',Validators.required]
     })
     this.blockCard=formBuilder.group({
       currPin:['',Validators.required]
