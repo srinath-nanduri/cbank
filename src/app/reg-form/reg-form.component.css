@@ -53,6 +53,12 @@ form{
     
 }
 
+.verMessage{
+    margin-top: 3rem;
+    margin-right: 3rem;
+    font-size:15px;
+};
+
 hr{
 border-top: 1px solid #8c8b8b;
 text-align: center;

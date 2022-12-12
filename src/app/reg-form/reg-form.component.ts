@@ -17,6 +17,7 @@ export class RegFormComponent implements OnInit {
 
   //aadharForm vars
   isVerified= false
+  showVerificationError = false
 
   //regForm vars
   isRegistered = false
@@ -66,6 +67,9 @@ export class RegFormComponent implements OnInit {
       let aadharValue = this.aadharForm.get('Aadhar')?.value;
       let mobileValue = this.aadharForm.get('mobile')?.value;
       this.isVerified = this.aadhar.some(obj => obj.aadhar==aadharValue && obj.mobile==mobileValue)
+      this.showVerificationError = !this.isVerified
+
+      console.log("Error " + this.showVerificationError)
       console.log(this.isVerified)
       console.log(aadharValue)
       console.log(this.aadhar)

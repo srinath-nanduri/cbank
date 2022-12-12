@@ -12,6 +12,12 @@
                         placeholder="Mobile Number registered with Aadhaar" 
                         formControlName="mobile"
                     />
+                    <!-- <div *ngIf="aadharForm.get('mobile')?.invalid && (aadharForm.get('mobile')?.dirty || aadharForm.get('mobile')?.touched)"
+                    class="alert alert-danger">
+                    </div>
+                    <div *ngIf="aadharForm.get('mobile')?.errors?.['required']">
+                        Mobile is required.
+                    </div> -->
                 </div>
                 <div class="col-md gy-2">
                     <input   
@@ -44,7 +50,7 @@
                     >
                 </div>
             </div>
-
+            <div>
             <button 
                 class="btn button btn-sm me-5 float-end" 
                 name="submit" 
@@ -53,7 +59,15 @@
                 (click)="verifyAadhar()"
                 >
                 Verify Aadhaar
-            </button>   
+            </button>
+            <div *ngIf="isVerified" class="verMessage float-end">
+                Aadhar Verified Successfully!
+            </div>
+            <div *ngIf="showVerificationError" class="verMessage float-end">
+                Aadhar Verification Unsuccessful.
+            </div>
+            
+            </div>   
     
         </form>
         <div class="hidden" [hidden]="!isVerified">
@@ -216,6 +230,7 @@
         </form>
     </div>
             
+        <div class="hidden" [hidden] = '!isRegistered'>
         <form [formGroup]="accForm">
             <div class="header small-pad"> Last Step ! Select type of <strong>product</strong></div>
             <hr>
@@ -249,7 +264,7 @@
                     Open Account !
             </button>
         </form>
-            
+        </div> 
         
        
         
