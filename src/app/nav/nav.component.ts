@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { CookieService } from 'ngx-cookie-service';
+
 
 @Component({
   selector: 'app-nav',
@@ -7,9 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavComponent implements OnInit {
 
-  constructor() { }
+  user!:string;
+
+  constructor(private cookSer: CookieService) {
+   }
+
+
+
+  setUser(): void{
+
+  }
 
   ngOnInit(): void {
+    this.user = this.cookSer.get("user");
   }
 
 }

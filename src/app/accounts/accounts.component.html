@@ -32,20 +32,21 @@ ddd
 
 
  
-
-<div class="row" *ngFor='let p of acc'>
+<div *ngIf="f1=='true'; else elseBlock">
+ <div class="row" >
     <div class="col p-2 d-flex align-items-center justify-content-center" >
         <div class="card">
             <div class="card-body">
-              <h5 class="card-title"> Account No. : XXXXXX{{p.ano | slice:6:10}} </h5>
-              <h6 class="card-subtitle mb-2 text-muted">Held by: {{p.ahold}} </h6>
-              <p class="card-text">Account type : {{p.atype}}</p>
-              <p class="card-text">Balance : {{p.abal}} </p>
+              <h5 class="card-title"> Account No. : {{acc.ano}}</h5>
+              <h6 class="card-subtitle mb-2 text-muted">Held by: {{user}} </h6>
+              <!-- <p class="card-text">Account type : {{p.atype}}</p> -->
+              <p class="card-text">Balance : {{acc.abal}} </p>
             </div>
           </div>    
     </div>
     
 </div>
+<!--
 
 <div class="row">
   <div class="col p-2 d-flex align-items-center justify-content-center" >
@@ -57,6 +58,48 @@ ddd
   </div>
   
 </div>
+
+ -->
+
+
+
+
+ 
+
+
+
+<div class="container mx-auto mt-5">
+  <table class="table table-striped" style="background-color: rgb(163, 202, 219);">
+      <thead>
+        <tr>
+          <!-- <th scope="col">Id</th> -->
+          <th scope="col">Date</th>
+          <th scope="col">Time</th>
+          <th scope="col">Withdraw</th>
+          <th scope="col">Deposit</th>
+          <th scope="col">Balance</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let t of trans">
+          <!-- <th scope="row">{{t.id}}</th> -->
+          <td> {{t.tdate}} </td>
+          <td> {{t.ttime}} </td>
+          <td> {{t.twithdraw}} </td>
+          <td> {{t.tdeposit}} </td>
+          <td> {{t.tbalance}} </td>
+        </tr>
+        
+      </tbody>
+    </table>
+</div>
+</div>
+
+
+<ng-template #elseBlock>
+  <!-- <p>No Access</p> -->
+  {{no_val()}}
+</ng-template>
 
 
 

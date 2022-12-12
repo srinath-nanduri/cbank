@@ -10,6 +10,43 @@ export class Aadhar{
   {}
 }
 
+export class Accounts{
+  constructor(
+    public id:number,
+    public ano:String,
+    public cid:number,
+    public abal:number,
+    public apin:string,
+    public aclimit: number,
+    public status: string
+  ) {}
+}
+
+export class Issues{
+  constructor(
+    public id:number,
+    public ano:String,
+    public cid:number,
+    public abal:number,
+    public apin:string,
+    public aclimit: number,
+    public status: string
+  ) {}
+}
+
+export class Transactions{
+  constructor(
+    public id:number,
+    public cid:number,
+    public tdate:String,
+    public ttime:String,
+    public twithdraw:number,
+    public tdeposit:number,
+    public tbalance: number
+  ) {}
+}
+
+
 export class Customer{
   constructor(
     public cfname:string,
@@ -44,5 +81,15 @@ export class HttpClientService {
     return this.httpClient.post<Customer>('http://localhost:4141/addCustomer', customer);
   }
 
+  valUser(email:String, pass:String){
+    return this.httpClient.get<String[]>('http://localhost:4141/val/'+email+'/'+pass);
+  
+  }
+  getAccDetails(id:number){
+    return this.httpClient.get<Accounts>('http://localhost:4141/Account/'+id);
+  }
+  getTranDetail(id:number){
+    return this.httpClient.get<Transactions[]>('http://localhost:4141/Transaction/'+id);
+  }
   
 }

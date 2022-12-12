@@ -1,3 +1,5 @@
+<div *ngIf="f1=='true'; else elseBlock">
+
 <br>
 <h2 style="text-align: center;color:red;">Types of Bank Loans</h2>
 <br>
@@ -92,6 +94,17 @@
          </div>
      </div>
 </div>
+
+
+</div>
+
+
+
+
+<ng-template #elseBlock>
+    <!-- <p>No Access</p> -->
+    {{no_val()}}
+</ng-template>
 
 
 <!-- ****************    FOOTER    **************** -->

@@ -45,9 +45,17 @@ export class SettComponent implements OnInit {
 
   logout(){
     this.cookSer.set('logcorr', 'false');
+    this.cookSer.set('user', 'User');
     this._router.navigateByUrl('/dash');
     // this.d = this.cookSer.get('logcorr');
     
+  }
+
+  	
+  f1 = this.cookSer.get('logcorr');
+  no_val() {
+    this._router.navigateByUrl('/clog');
+    // return 1;
   }
 
 }

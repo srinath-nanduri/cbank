@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,14 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'AngBank';
+
+  constructor(private cookSer:CookieService){
+    // this.cookSer.set('logcorr', 'false');
+    // this.cookSer.set('user', 'User');
+  }
+
+  ngOnInit(): void{
+    // this.cookSer.set('logcorr', 'false');
+    // this.cookSer.set('user', 'User');
+  }
 }

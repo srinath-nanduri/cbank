@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
-import { LogInService } from '../log-in.service';
 
 @Component({
   selector: 'app-dash',
@@ -11,9 +10,6 @@ import { LogInService } from '../log-in.service';
 export class DashComponent implements OnInit {
 
   constructor( private _router: Router, private cookSer:CookieService) { }
-
-  ngOnInit(): void {
-  }
 
 
 
@@ -31,6 +27,15 @@ export class DashComponent implements OnInit {
 
   setC(){
     this.f1 = this.cookSer.get('logcorr');
+  }
+
+
+  user!:string;
+
+
+
+  ngOnInit(): void {
+    this.user = this.cookSer.get("user");
   }
 
 

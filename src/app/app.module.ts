@@ -12,7 +12,6 @@ import { SettComponent } from './sett/sett.component';
 import { CustSerComponent } from './cust-ser/cust-ser.component';
 import { PnfComponent } from './pnf/pnf.component';
 import { DashComponent } from './dash/dash.component';
-import { LogInService } from './log-in.service';
 import { CookieService } from 'ngx-cookie-service';
 import { LandingComponent } from './landing/landing.component';
 
@@ -62,7 +61,7 @@ import { HttpClientService } from './http-client.service';
     RouterModule.forRoot(routes),
 
   ],
-  providers: [LogInService, CookieService,HttpClientService],
+  providers: [CookieService,HttpClientService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,4 +1,4 @@
-<div class="row">
+<div class="row" *ngIf="f1=='true'; else elseBlock">
   <div class="col">
 
 
@@ -13,7 +13,14 @@
       <app-customer></app-customer>
    
 </div>
+</div>
 
+
+
+<ng-template #elseBlock>
+    <!-- <p>No Access</p> -->
+    {{no_val()}}
+  </ng-template>
 
 
 <!-- ****************    FOOTER    **************** -->

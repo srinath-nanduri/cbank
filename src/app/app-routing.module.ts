@@ -22,6 +22,7 @@ export const routes: Routes = [
   {path: 'accounts', component: AccountsComponent},
   {path: 'loans', component: LoansComponent},
   {path: 'sett', component: SettComponent},
+  {path: 'clog', component:ClogComponent},
   // {path: 'cust-ser', component:CustSerComponent},
   {path: 'cust-ser',  
   component: CustSerComponent,
@@ -36,18 +37,12 @@ export const routes: Routes = [
 
   
 },
-  {path: 'clog', component:ClogComponent},
+
   {path: 'dash', component:DashComponent},
   {path: 'landing', component:LandingComponent},
   {path: 'reg-form', component:RegFormComponent},
   {path: 'loanform', component:LoanformComponent},
 
-  // {path: "acc",component:AccountsComponent, outlet:"faq"},
-  // {path:"cards",component:CardsComponent, outlet:"faq"},
-  // {path:"cloans",component:CloansComponent, outlet:"faq"},
-  // {path:"transactions",component:TransactionsComponent, outlet:"faq"},
-  // {path:"issue_form",component:IssueFormComponent, outlet:"faq"},
-  // {path: "feedback",component:FeedbackComponent, outlet:"faq"},
 
   // {path: '', redirectTo:'/clog', pathMatch:'full'},
   {path: '', redirectTo:'/landing', pathMatch:'full'},

@@ -1,4 +1,4 @@
-<section class="mx-auto">
+<section class="mx-auto" *ngIf="f1=='true'; else elseBlock">
     <div class="container">
         <div class="header">Profile</div>
         <div class="profile-content">
@@ -103,6 +103,11 @@
 <div class="pad"></div>
 <div class="pad"></div>
 
+
+<ng-template #elseBlock>
+    <!-- <p>No Access</p> -->
+    {{no_val()}}
+  </ng-template>
 
 <!-- ****************    FOOTER    **************** -->
 
