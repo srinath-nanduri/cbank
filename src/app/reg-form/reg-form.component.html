@@ -82,6 +82,7 @@
                         class="form-control" 
                         placeholder="First Name"
                         formControlName="fname"
+                        [(ngModel)]='customer1.cfname'
                         >
                 </div>
                 <div class="col-md gy-2">
@@ -90,6 +91,7 @@
                         class="form-control" 
                         placeholder="Last Name"
                         formControlName="lname"
+                        [(ngModel)]='customer1.clname'
                         >
                 </div>
             </div>
@@ -100,6 +102,7 @@
                         class="form-control" 
                         placeholder="Date Of Birth"
                         formControlName="dob"
+                        [(ngModel)]='customer1.cdob'
                         >
                 </div>
                 <div class="col-md gy-2">
@@ -108,11 +111,12 @@
                     type='select'
                     class="form-select" 
                     formControlName="gender"
+                    
                     >
                         <option value="" disabled selected hidden>Gender</option>
-                        <option value="1">Male</option>
-                        <option value="2">Female</option>
-                        <option value="3">Other</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                        <option value="Other">Other</option>
                 </select>
                 </div>
                 <div class="col-md gy-2">
@@ -138,6 +142,7 @@
                         class="form-control" 
                         placeholder="Gross annual income in ₹"
                         formControlName="annualIncome"
+                        [(ngModel)]='customer1.cgrossincome'
                         >
                 </div>
                 <div class="col-md gy-2">
@@ -146,6 +151,7 @@
                         class="form-control" 
                         placeholder="Company Name/Business Name"
                         formControlName="companybusinessName"
+                        [(ngModel)]='customer1.cplaceofwork'
                         >
                 </div>
             </div>
@@ -156,11 +162,12 @@
                         type='select'
                         class="form-select" 
                         formControlName="occupation"
+                        [(ngModel)]='customer1.coccupation'
                         >
                             <option value="" disabled selected hidden>Occupation</option>
-                            <option value="1">Service</option>
-                            <option value="2">Business</option>
-                            <option value="3">Self</option>
+                            <option value="Service">Service</option>
+                            <option value="Business">Business</option>
+                            <option value="Self">Self</option>
                     </select>
                 </div>
                 <div class="col-md gy-2">
@@ -169,11 +176,12 @@
                         class="form-select" 
                         type='select'
                         formControlName="SOI"
+                        [(ngModel)]='customer1.csoi'
                         >
                         <option value="" disabled selected hidden>Source of Income</option>
-                        <option value="1">Salaried</option>
-                        <option value="2">Business</option>
-                        <option value="3">None</option>
+                        <option value="Salaried">Salaried</option>
+                        <option value="Business">Business</option>
+                        <option value="None">None</option>
                     </select>
                 </div>
             </div>
@@ -192,6 +200,7 @@
                         class="form-control" 
                         placeholder="Confirm Password"
                         formControlName="confirmPass"
+                        [(ngModel)]= 'customer1.cpass'
                         >
                 </div>
             </div>
@@ -224,7 +233,10 @@
                 class="btn button-2 btn-md me-5 float-end" 
                 name="submit" 
                 type="submit" 
-                [disabled]="regForm.invalid">
+                [disabled]="regForm.invalid"
+                (click)="onSubmit()"
+                >
+                
                     Proceed to Open Account
             </button>
         </form>
@@ -260,7 +272,9 @@
                 class="btn button-2 btn-md me-5 float-end" 
                 name="submit" 
                 type="submit" 
-                [disabled]="accForm.invalid">
+                [disabled]="accForm.invalid"
+                
+                >
                     Open Account !
             </button>
         </form>

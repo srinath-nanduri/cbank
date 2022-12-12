@@ -13,7 +13,7 @@ export class Aadhar{
 export class Customer{
   constructor(
     public cfname:string,
-    public lname:string,
+    public clname:string,
     public cmobile:string,
     public cemail:string,
     public cdob:Date,
@@ -38,4 +38,11 @@ export class HttpClientService {
   valAadhar():Observable<Aadhar[]>{
   return this.httpClient.get<Aadhar[]>('http://localhost:4141/Aadhar')
 }
+
+  regInsert(customer: Customer): Observable<Customer> {
+    console.log(customer)
+    return this.httpClient.post<Customer>('http://localhost:4141/addCustomer', customer);
+  }
+
+  
 }
