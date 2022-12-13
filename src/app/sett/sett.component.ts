@@ -109,7 +109,7 @@ export class SettComponent implements OnInit {
         this.httpClient.passChange(id, cpass, npass).subscribe(response => {
 
         
-          console.log(response);
+          alert("Password Updated");
 
         })
   }
@@ -121,7 +121,7 @@ export class SettComponent implements OnInit {
 
     console.log(cemail,nemail)
     this.httpClient.emailChange(id,cemail,nemail).subscribe(response =>{
-      console.log(response)
+      alert("Email Updated");
     })
   }
 
@@ -132,7 +132,7 @@ export class SettComponent implements OnInit {
 
     console.log(cmobile,nmobile)
     this.httpClient.mobileChange(id,cmobile,nmobile).subscribe(response =>{
-      console.log(response)
+      alert("Mobile Number Updated");
     })
   }
 

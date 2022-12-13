@@ -1,0 +1,145 @@
+h3,h4{
+    font-family: 'Times New Roman', Times, serif;
+}
+
+
+/*image container*/
+.container3 {
+  position: relative;
+  text-align: center;
+  color: white;
+  margin: 10px 50px 10px 50px;
+  padding:10px;
+}
+
+.bottom-right {
+  position: absolute;
+  bottom: 8px;
+  right: 95px;
+  font-size: 18px;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.bottom-left {
+  position: absolute;
+  bottom: 20px;
+  left: 16px;
+  font-size: 30px;
+  background-color: #262626;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.container4 {
+  position: relative;
+  font-family: Arial;
+}
+
+.text-block1 {
+  position: absolute;
+  top: 40px;
+  right: 30px;
+  background-color: black;
+  color: white;
+  /* padding-left: 30px;
+  padding-right: 50px; */
+  padding:40px 50px 20px 30px;
+  font-size: 25px;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+
+
+/*card*/
+.column {
+    float: left;
+    width: 25%;
+    height:30%;
+    padding: 20px 20px;
+    margin: 25px 25px;
+  }
+  .row {margin: 0 -5px;}
+
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  .card {
+    box-shadow: 0.5rem 0.5rem rgba(4, 31, 4,0.2);
+    padding: 16px;
+    text-align: center;
+    background-color: #f1f1f1;
+    margin:10px 40px 0 40px;
+    width:300px;
+    border:none;
+  }
+
+  .centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color:   #262626;
+    font-size: 24px;
+    font-family: 'Times New Roman', Times, serif;
+
+  }
+
+
+  /*flex-container*/
+
+.flex-container {
+    display: flex;
+    background-color:#66ffcc;
+    margin:30px;
+    height:250px;
+  }
+  
+  .flex-container > div {
+    background-color: #f1f1f1;
+    margin: 10px;
+    padding:20px;
+    font-size: 14px;
+    width:210px;
+    font-family: 'Times New Roman', Times, serif;
+  }
+
+  /*container*/
+  .container1 {
+    display: flex;
+    margin:30px;
+    height:250px;
+  }
+
+
+  /*----*/
+  .column2 {
+    float: left;
+    width: 30%;
+    padding: 10px;
+    height: 130px; 
+    border:1px solid white;
+    margin:0 20px 0 20px;
+    column-count: 2;
+    column-gap: 5px;
+    background-color:white;
+  }
+  
+  .row2:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  h2{
+    text-align: center;
+    font-family: 'Times New Roman';
+    font-size: 20px;
+    padding-top:35px;
+  }
+  .container2{
+    width: 100%;
+    height:200px;
+    background-color: #80ffd4;
+    margin:10px;
+    padding-top:20px;
+  }

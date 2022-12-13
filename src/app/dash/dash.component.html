@@ -4,8 +4,82 @@
 
 
 <div *ngIf="f1=='true'; else elseBlock">
-    <p>Dash Works</p>
-    {{user}}
+    
+
+
+    <!-- image-container -->
+<div class="container3">
+    <img src="../assets/dash_img/sliderh.jpg"  style="width:100%;height:350px;">
+    <div class="bottom-right">
+        Har pal apke sath</div>
+    <div class="bottom-left">
+        <img src="../assets/LF.png" style="width:50px;">
+        Meet your all Banking and Financial Needs</div>
+
+    <div class="text-block1">
+    <p>Our Values</p>
+    <ul>
+        <li>Customer Focus</li>
+        <li>People</li>
+        <li>Sustanibility</li>
+      </ul>
+    </div>
+</div>
+
+<!-- card -->
+<div class="row">
+    <div class="column">
+       <div class="card">  
+        <img src="../assets/dash_img/A1home.jpg" style="width:100%;height:180px;">
+        <button class="centered">
+            <a routerLink="/accounts" style="color:white;">Accounts</a>
+        </button>
+        </div>       
+    </div>
+
+    <div class="column">
+        <div class="card">
+            <img src="../assets/dash_img/L2home.jpg" style="width:100%;height:180px;">
+            <button class="centered">
+                <a routerLink="/loans" style="color:white;">Loans</a>
+            </button>
+         </div>      
+     </div>
+    
+     <div class="column">
+        <div class="card">
+            <img src="../assets/dash_img/S3home.jpg" style="width:100%;height:180px;">
+            <button class="centered">
+                <a routerLink="/cust-ser" style="color:white;">Services</a>
+            </button>
+         </div>       
+     </div>
+</div>
+<br>
+
+
+
+
+<!-- container -->
+<div class="container2">
+<div class="row2">
+    <h4 style="padding-left:30px;">Get in touch</h4>
+    <div class="column2">
+        <img src="../assets/dash_img/comp1.jpg" style="width:150px;height:110px;border-radius: 50%;">
+        <h2 >Raise a service request/complaint</h2>
+    </div>
+
+    <div class="column2">
+        <img src="../assets/dash_img/feedbackhome.jpg" style="width:150px;height:110px;border-radius: 50%;">
+        <h2 >Send us your feedback</h2>
+    </div>
+
+    <div class="column2">
+        <img src="../assets/dash_img/profilehome.jpg" style="width:150px;height:110px;border-radius: 50%;">
+        <h2 >Your Profile</h2>
+    </div>
+</div>
+</div>
 </div>
 
 <ng-template #elseBlock>
