@@ -42,6 +42,17 @@ export class Accounts{
   ) {}
 }
 
+export class Acc{
+  constructor(
+    public ano:string,
+    public cid:number,
+    public abal:number,
+    public apin:string,
+    public aclimit: number,
+    public status: string
+  ) {}
+}
+
 export class Issues{
   constructor(
     public iname:string,
@@ -134,7 +145,15 @@ export class HttpClientService {
   }
   public addLoan(loan: Loan) {
     return this.httpClient.post<Loan>("http://localhost:4141/addLoan",loan);
-  }  
+  }
   
+  valAcc(id:number) {
+    return this.httpClient.get<string>('http://localhost:4141/valAcc/'+id);
+  }
+
+  addAcc(a:Acc){
+    return this.httpClient.post<Acc>('http://localhost:4141/addAcc', a);
+  }
+
   
 }

@@ -1,38 +1,8 @@
-<!-- <div style=" text-align: center; background-color:rgb(88, 118, 175); ">
-ddd
-</div> -->
-
-<!-- <div class="row">
-    <div class="col p-4 d-flex align-items-center justify-content-center" >
-        <div class="card" >
-            <div class="card-body">
-              <h5 class="card-title">Single Account</h5>
-              <h6 class="card-subtitle mb-2 text-muted">Srinath Nanduri</h6>
-              <p class="card-text">Balance : 52120</p>
-            </div>
-        </div>    
-    </div>
-
-
-</div>
-<div class="row">
-    <div class="col p-2 d-flex align-items-center justify-content-center" >
-        <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">Joint Account</h5>
-              <h6 class="card-subtitle mb-2 text-muted">Srinath | Srinidhi</h6>
-              <p class="card-text">Balance : 22120</p>
-            </div>
-          </div>    
-    </div>
-    
-</div>
-
- -->
-
-
- 
 <div *ngIf="f1=='true'; else elseBlock">
+
+
+
+<div *ngIf="f2=='true'; else elseblo"> 
  <div class="row" >
     <div class="col p-2 d-flex align-items-center justify-content-center" >
         <div class="card">
@@ -45,26 +15,7 @@ ddd
           </div>    
     </div>
     
-</div>
-<!--
-
-<div class="row">
-  <div class="col p-2 d-flex align-items-center justify-content-center" >
-      <div class="card">
-          <div class="card-body" (click)="yopush()" data-bs-toggle="modal" data-bs-target="#exampleModal" style="justify-content: center; align-items: center; display: flex;">
-            <div style="font-size: 80px; background-color: bisque; border-radius: 50%; height: 100px; width: 100px; text-align: center; display: flex; align-items: center; justify-content: center;">+</div>
-          </div>
-        </div>    
-  </div>
-  
-</div>
-
- -->
-
-
-
-
- 
+</div> 
 
 
 
@@ -94,6 +45,29 @@ ddd
     </table>
 </div>
 </div>
+
+<ng-template #elseblo>
+
+  <form #logForm="ngForm" (ngSubmit)="submit(logForm)" novalidate>
+    Pin : <input class="input" type="text" name="pin" ngModel required #user="ngModel" autocomplete="off"> 
+    
+    <br><br>
+    Add Funds : <input name="funds" class="input" type="text" ngModel>
+    
+     <br><br>
+    <button class="btn btn-primary">Submit</button> 
+  </form>
+
+</ng-template>
+
+
+
+
+
+
+</div>
+
+
 
 
 <ng-template #elseBlock>

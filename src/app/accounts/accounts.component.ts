@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
-import { Accounts, HttpClientService, Transactions } from '../http-client.service';
+import { Acc, Accounts, HttpClientService, Transactions } from '../http-client.service';
 
 @Component({
   selector: 'app-accounts',
@@ -11,9 +12,13 @@ import { Accounts, HttpClientService, Transactions } from '../http-client.servic
 export class AccountsComponent implements OnInit {
 
   acc!:Accounts;
+  nacc:Acc= new Acc("", 0, 0, "", 0, "");
   trans:Transactions[]=[];
   id!:number;
+  flag!:boolean;
+  f2!:string;
   temp:string = this.cookSer.get("user");
+
   // user!:string;
   user = this.temp.charAt(0).toUpperCase() + this.temp.slice(1);
 
@@ -29,21 +34,78 @@ export class AccountsComponent implements OnInit {
 
     this.id = this.cookSer.get("userid") as unknown as number;
 
-    this.httpClientService.getTranDetail(this.id).subscribe(
-      response =>{this.trans=response;},
-     );
+    this.httpClientService.valAcc(this.id).subscribe(
+      response =>{
+        this.flag=response as unknown as boolean;
+        // console.log(typeof this.flag);   
+        this.valFlag(this.flag);
+      }
+      
+    )
+    
+  }
 
-     this.httpClientService.getAccDetails(this.id).subscribe(
-      response =>{this.acc=response;},
-     );
+
+  valFlag(f:boolean){
+    if(f==true){
+      this.f2 = "true";
+      console.log(this.f2);
+      this.getAcc();
+    }
+    else{
+      this.f2 = "false";
+      console.log(this.f2);
+    }
+  }
+
+
+  getAcc():void{
+    this.id = this.cookSer.get("userid") as unknown as number;
+
+
+  this.httpClientService.getTranDetail(this.id).subscribe(
+    response =>{this.trans=response;},
+   );
+
+   this.httpClientService.getAccDetails(this.id).subscribe(
+    response =>{this.acc=response;},
+   );
+  }
+
+  submit(form: NgForm){
+
+    
+
+    this.nacc.abal = form.value.funds as number;
+    this.nacc.apin = form.value.pin;
+    this.nacc.aclimit = 10000;
+    this.nacc.ano=this.randomString();
+    this.nacc.cid=this.cookSer.get("userid") as unknown as number;
+    this.nacc.status="unblocked";
+
+    this.httpClientService.addAcc(this.nacc).subscribe(data =>{
+
+      alert("Account Created Successfully");
+  
+    });
 
   }
+
+
+
 
   no_val() {
     this._router.navigateByUrl('/clog');
     // return 1;
   }
 
+  
+    randomString() {
+      let chars='0123456789';
+      var result = '';
+      for (var i = 10; i > 0; --i) result += chars[Math.floor(Math.random() * chars.length)];
+      return result;
+  }
 
   // yopush(){
   //   this.acc.push({aid:'04', ano:'6492122006', atype:'Savings', abal:'49,283', abranch:'Earth', ahold:'Srinidhi'})
