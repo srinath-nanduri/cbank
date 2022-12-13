@@ -155,5 +155,18 @@ export class HttpClientService {
     return this.httpClient.post<Acc>('http://localhost:4141/addAcc', a);
   }
 
+  passChange(id:string,currentPassword:string,newPassword:string){
+
+    return this.httpClient.get<Customer>('http://localhost:4141/value/'+id + '/'+currentPassword +'/' + newPassword)
+  }
+
+  emailChange(id:string,currentEmail:string,newEmail:string){
+    return this.httpClient.get<Customer>('http://localhost:4141/emailval/'+id+'/'+currentEmail+'/'+newEmail)
+  }
+
+  mobileChange(id:string,currentMobile:string,newMobile:string){
+    return this.httpClient.get<Customer>('http://localhost:4141/mobileval/'+id+'/'+currentMobile+'/'+newMobile)
+  }
+
   
 }

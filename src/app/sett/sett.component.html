@@ -3,8 +3,8 @@
         <div class="header">Profile</div>
         <div class="profile-content">
             <h3> {{name}} </h3> 
-            <h4>{{email}},</h4> 
-            <h4>Customer ID - {{id}}</h4>
+            <h5>{{email}},</h5> 
+            <h5>Customer ID - {{id}}</h5>
         </div>
         
         <div class="card-details">
@@ -81,13 +81,76 @@
         <div class="header">Security</div>
         <div class="Security">
             <div class="edit-stuff">
-                <h5>Change Password</h5> <img src="./assets/editbutton.png" class="img" alt="">
+                <h5>Change Password</h5> <img src="./assets/editbutton.png" class="img" alt=""
+                (click)="toggleDisplay(3)"
+                >
+                <div [hidden]="showDiv[3]" class="hidden">
+                    <form [formGroup]="changePass">
+                    <p>Current Password : <input type="password" formControlName="currPass">
+                    </p>
+                    <p>
+                    Set New Password : <input type="password" formControlName="newPass">
+                    </p>
+                    
+                    <button
+                    class="btn button-1 btn-sm float-end" 
+                    name="submit" 
+                    type="submit" 
+                    [disabled]="changePass.invalid"
+                    (click)='changePassSubmit()'
+                    >
+                        Submit
+                    </button>
+                    </form>
+                </div>
             </div>
             <div class="edit-stuff">
-                <h5>Change Email</h5> <img src="./assets/editbutton.png" class="img" alt="">
+                <h5>Change Email</h5> <img src="./assets/editbutton.png" class="img" alt="" (click)='toggleDisplay(4)'>
+                <div [hidden]="showDiv[4]" class="hidden">
+                    <form [formGroup]="changeEmail">
+                    <p>Current Email Address : 
+                        <input type="email" formControlName="currEmail">
+                    </p>
+                    <p>
+                    Set New Email Address :
+                    <input type="email" formControlName="newEmail">
+                    </p>
+                    
+                    <button
+                    class="btn button-1 btn-sm float-end" 
+                    name="submit" 
+                    type="submit" 
+                    [disabled]="changeEmail.invalid"
+                    (click)='changeEmailSubmit()'
+                    >
+                        Submit
+                    </button>
+                    </form>
+                </div>
             </div>
             <div class="edit-stuff">
-                <h5>Change Mobile Number</h5> <img src="./assets/editbutton.png" class="img" alt="">
+                <h5>Change Mobile Number</h5> <img src="./assets/editbutton.png" class="img" alt="" (click)="toggleDisplay(5)">
+                <div [hidden]="showDiv[5]" class="hidden">
+                    <form [formGroup]="changeMobile">
+                    <p>Current Mobile Number : 
+                        <input type="text" formControlName="currMobile">
+                    </p>
+                    <p>
+                    New Mobile Number :
+                    <input type="text" formControlName="newMobile">
+                    </p>
+                    
+                    <button
+                    class="btn button-1 btn-sm float-end" 
+                    name="submit" 
+                    type="submit" 
+                    [disabled]="changeMobile.invalid"
+                    (click)='changeMobileSubmit()'
+                    >
+                        Submit
+                    </button>
+                    </form>
+                </div>
             </div>
           
          
