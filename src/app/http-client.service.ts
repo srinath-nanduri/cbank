@@ -12,6 +12,24 @@ export class Aadhar{
   {}
 }
 
+export class Loan{
+  constructor(
+      public firstname: string,
+      public lastname: string,
+      public email: string,
+      public phoneno: string,
+      public address: string,
+      public dob: string,
+      public currentocc: string,
+      public comname: string,
+      public yoe: string,
+      public ltype: string,
+      public lamt: string,
+      public lperiod: string,
+      public roi: string
+  ){}
+  }
+
 export class Accounts{
   constructor(
     public id:number,
@@ -26,14 +44,28 @@ export class Accounts{
 
 export class Issues{
   constructor(
-    public id:number,
-    public ano:String,
-    public cid:number,
-    public abal:number,
-    public apin:string,
-    public aclimit: number,
-    public status: string
+    public iname:string,
+    public iaccno:string,
+    public iemail:string,
+    public imobile:string,
+    public idate:string,
+    public itype: string,
+    public idesc: string
   ) {}
+}
+
+export class Feedback{
+
+  constructor(
+    public ftype:string,
+    public fname:string,
+    public femail:string,
+    public fmobile:string,
+    public fstaff:string,
+    public fbranch:string,
+    public fdesc:string,
+  ){}
+
 }
 
 export class Transactions{
@@ -93,5 +125,16 @@ export class HttpClientService {
   getTranDetail(id:number){
     return this.httpClient.get<Transactions[]>('http://localhost:4141/Transaction/'+id);
   }
+
+  insIssue(i:Issues){
+    return this.httpClient.post<Issues>('http://localhost:4141/addIssue', i);
+  }
+  insFeedback(i: Feedback){
+    return this.httpClient.post<Feedback>('http://localhost:4141/addFeedback', i);
+  }
+  public addLoan(loan: Loan) {
+    return this.httpClient.post<Loan>("http://localhost:4141/addLoan",loan);
+  }  
+  
   
 }

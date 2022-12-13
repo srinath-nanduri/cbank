@@ -1,49 +1,48 @@
-
-    <div class="testbox">
-      <form action="/">
-        <h4>Bank Customer Feedback Form</h4>
-        <p>Type of Feedback<span>*</span></p>
-        <select>
-          <option value=""></option>
-          <option value="">Enquiry</option>
-          <option value="2">Complaint</option>
-          <option value="3">Compliment</option>
-          <option value="4">Suggestion</option>
-        </select>
-        <p>Feedback/Enquiry on<span>*</span></p>
-        <select>
-          <option value=""></option>
-          <option value="1">Credit and Debit Cards</option>
-          <option value="2">Deposit</option>
-          <option value="3">Housing and Renovation Loan</option>
-          <option value="4">iBanking</option>
-          <option value="5">Treasures</option>
-        </select>
-        <p>Name<span>*</span></p>
-        <div class="title-block">
-          <select>
-            <option value="title" selected>Title</option>
-            <option value="ms">Ms</option>
-            <option value="miss">Miss</option>
-            <option value="mrs">Mrs</option>
-            <option value="mr">Mr</option>
-          </select>
-          <input class="name" type="text" name="name" placeholder="First" />
-          <input class="name" type="text" name="name" placeholder="Last" />
-        </div>
-        <p>Email Address<span>*</span></p>
-        <input type="text" name="name" />
-        <p>Contact Number<span>*</span></p>
-        <input type="text" name="name"/>
-        <p>Name of Staff who served me</p>
-        <input type="text" name="name"/>
-        <p>Branch visited</p>
-        <input type="text" name="name"/>
-        <p>Feedback/Enquiry</p>
-        <!-- <p class="small">Please do not indicate your account or credit card number and banking instruction in your comments. Thank you for your time and valuable feedback.</small> -->
-          <textarea rows="5"></textarea>
-        <div class="btn-block">
-          <button type="submit" href="/">Send Feedback</button>
-        </div>
-      </form>
+<div class="testbox">
+  <form action="/" #issForm="ngForm" (ngSubmit)="submit(issForm)">
+    <h4>Bank Customer Feedback Form</h4>
+    <div class="item">
+      <p>Type of feedback</p>
+      <select ngModel name="type">
+            <!-- <option value=""></option> -->
+            <option value="Enquiry">Enquiry</option>
+            <option value="Complaint">Complaint</option>
+            <option value="Compliement">Compliement</option>
+            <option value="Suggestion">Suggestion</option>
+      </select>
     </div>
+
+    <div class="item">
+      <p> Name</p>
+      <input type="text" name="name" ngModel required/>
+    </div>
+    <div class="item">
+        <p>Email</p>
+        <input type="text" name="email" ngModel required/>
+    </div>
+   
+
+    <div class="item">
+      <p>Contact Number</p>
+      <input type="text" name="mobile" ngModel/>
+    </div>
+    <div class="item">
+      <p>Staff who served me</p>
+      <input type="text" name="staff" ngModel/>
+    </div>
+
+
+    <div class="item">
+      <p>Branch Visited</p>
+      <input type="text" name="branch" ngModel/>
+    </div>
+
+    <div class="item">
+      <p>Feedback</p>
+      <textarea rows="5" ngModel name="desc" ></textarea>
+    </div>
+    <div class="btn-block">
+      <button type="submit" href="/">Send Feedback</button>
+    </div>
+  </form>
+</div>

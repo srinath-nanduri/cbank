@@ -1,78 +1,210 @@
 <br>
+
 <h2>Apply for Loan</h2>
+
 <br>
-<form >
+
   <div class="container">
+
+  <form [formGroup]="LoanForm">
+
     <h4>Personal Details</h4>
-    First Name:<input type="text" id="firstname" ng-model><br>
-    Last Name:<input type="text" id="lastname" ng-model><br>
-    Email:&nbsp;&nbsp;&nbsp;<input type="text" id="email" ng-model><br>
-    Phone No:<input type="text" id="number" ng-model><br>
-    Date of Birth:<input type="date" id="dob" ng-model><br>
-    Address: <input type="text-area" style="height: 50px;" id="address" ng-model><br>
-    <br>
+
+    First Name:
+
+    <input type="text" name="firstname" class="form-control" formControlName="firstname"
+
+           [(ngModel)]="loan.firstname" />
+
+
+
+    Last Name:
+
+    <input type="text" name="lastname" class="form-control" formControlName="lastname"
+
+           [(ngModel)]="loan.lastname" ><br>
+
+
+
+    Email:
+
+   <input type="text" name="email" class="form-control" formControlName="email"
+
+          [(ngModel)]="loan.email" ><br>
+
+   
+
+    Phone No:
+
+    <input type="text" name="phoneno" class="form-control" formControlName="phoneno"
+
+    [(ngModel)]="loan.phoneno"><br>
+
+
+
+    Date of Birth:
+
+    <input type="date" name="dob" class="form-control" formControlName="dob"
+
+           [(ngModel)]="loan.dob"><br>
+
+
+
+    Address:
+
+    <input type="text-area" style="height: 50px;" name="address" class="form-control"
+
+            formControlName="address"  [(ngModel)]="loan.address"><br>
+
+           
+
+
+
     Marital Status:<br>
+
       <input type="checkbox" name="status" value="single">Single<br>
+
       <input type="checkbox" name="status" value="married">Married<br>
+
       <input type="checkbox" name="status" value="divorced">Other<br>
+
     <br>
+
     <hr>
+
     <h4>Work Details</h4>
-    Current Occupation:<input type="text" id="occupation" ng-model><br>
-    Company Name:<input type="text" id="companyname" ng-model><br>
-    Company Location:<input type="text" id="city" ng-model><br>
+
+    Current Occupation:
+
+    <input type="text" name="currentocc" class="form-control" formControlName="currentocc"
+
+    [(ngModel)]="loan.currentocc"><br>
+
+   
+
+    Company Name:
+
+    <input type="text" name="comname" class="form-control" formControlName="comname"
+
+            [(ngModel)]="loan.comname"><br>
+
+
+
+ 
+
     Year of Experience:<br>
-    <input type="radio" name="years" value="1">5-10<br>
-    <input type="radio" name="years" value="2">10-15<br>
-    <input type="radio" name="years" value="1">15+<br>
+
+    <input type="text" name="yoe" class="form-control" formControlName="yoe" placeholder="yrs"
+
+            [(ngModel)]="loan.yoe"><br>
+
     <hr>
+
     <h4>Loan Type and Amount</h4>
+
     Loan Type:
-      <select name="type" id="loan">
+
+      <select name="type" class="form-select" formControlName="ltype" [(ngModel)]="loan.ltype">
+
         <option value="">--Select Loan type--</option><br>
-        <option value="ploan">Personal Loan</option><br>
-        <option value="eloan">Education Loan</option><br>
-        <option value="hloan">Home Loan</option><br>
-        <option value="cloan">Car Loan</option><br>
+
+        <option value="Personal Loan">Personal Loan</option><br>
+
+        <option value="Education Loan">Education Loan</option><br>
+
+        <option value="Home Loan">Home Loan</option><br>
+
+        <option value="Car Loan">Car Loan</option><br>
+
       </select>
+
       <br>
+
     Loan Amount :
-    <select name="type" id="amount">
+
+    <select name="type" class="form-select" formControlName="lamt" [(ngModel)]="loan.lamt">
+
       <option value="">--Select Loan Amount--</option><br>
-      <option value="eamt">Rs 5 crore</option><br>
-      <option value="pamt">Rs 1 crore</option><br>
-      <option value="eamt">Rs 75 lakhs</option><br>
-      <option value="eamt">Rs 50 lakhs</option><br>
+
+      <option value="Rs 5 crore">Rs 5 crore </option><br>
+
+      <option value="Rs 1 crore">Rs 1 crore </option><br>
+
+      <option value="Rs 75 lakhs">Rs 75 lakhs </option><br>
+
+      <option value="Rs 50 lakhs">Rs 50 lakhs </option><br>
+
     </select>
+
     <br>
+
+
+
     Loan Period:<br>
-    <input type="radio" name="period" value="1">5-10<br>
-    <input type="radio" name="period" value="2">10-15<br>
-    <input type="radio" name="period" value="1">15+<br>
-    <br>
+
+    <input type="text" name="lperiod" class="form-control" formControlName="lperiod" placeholder="yrs"
+
+           [(ngModel)]="loan.lperiod"><br>
+
+   
+
+    Loan ROI:<br>
+
+    <input type="text" name="roi" class="form-control" formControlName="roi" placeholder="%p.a"
+
+    [(ngModel)]="loan.roi"><br>
+
+ 
+
+ 
+
     <hr>
-    Comment: <input type="text-area" style="height: 100px;" id="address" ng-model><br>
-    <br>
-    <hr>
-    <p>I authorize prospective Companies to obtain personal and credit information about me from my employer and credit bureau, or credit reporting agency, any person who has or may have any financial dealing with me, or from any references I have provided. 
-      This information, as well as that provided by me in the application, will be referred to in connection with this lease and any other relationships we may establish from time to time. 
+
+    <input  type="checkbox"  name="terms"  formControlName="terms">
+
+    <p>I authorize prospective Companies to obtain personal and credit information about me from my employer and credit bureau, or credit reporting agency, any person who has or may have any financial dealing with me, or from any references I have provided.
+
+      This information, as well as that provided by me in the application, will be referred to in connection with this lease and any other relationships we may establish from time to time.
+
       Any personal and credit information obtained may be disclosed from time to time to other lenders, credit bureaus or other credit reporting agencies. **
+
     </p>    
-    <input type="checkbox"  value="yes">Yes<br>
-    <br>
+
+    <input  type="checkbox"  name="declare"  formControlName="declare">
+
     <p>I hereby agree that the information given is true, accurate and complete as of the date of this application submission. **</p>
-    <input type="checkbox"  value="yes">Yes<br>
+
     <br>
-    <button (click)="submit()">Submit</button>
-    
-    
+
+
+
+    <button
+
+    name="submit" type="submit"
+
+    (click)="addloan()"
+
+    >Submit</button>
+
+  </form>
+
  </div>
-</form>
+
+
+
+ 
+
+
 
 
 <!-- ****************    FOOTER    **************** -->
 
+
+
 <br>
+
 <br>
+
 <br>
+
 <app-footer></app-footer>

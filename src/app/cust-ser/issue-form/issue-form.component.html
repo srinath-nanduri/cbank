@@ -1,43 +1,43 @@
     <div class="testbox">
-      <form action="/">
+      <form action="/" #issForm="ngForm" (ngSubmit)="submit(issForm)">
         <h4>Raise a Request/Complaint Form</h4>
         <div class="item">
           <p>Complainant's Name</p>
           <div class="name-item">
-            <input type="text" name="name" placeholder="First" />
-            <input type="text" name="name" placeholder="Last" />
+            <input type="text" name="fname" ngModel placeholder="First" />
+            <input type="text" name="lname" ngModel placeholder="Last" />
           </div>
         </div>
         <div class="item">
             <p>Account No</p>
-            <input type="text" name="name" required/>
+            <input type="text" name="accno" ngModel required/>
            
           </div>
        
         <div class="item">
           <p>Email</p>
-          <input type="text" name="name"/>
+          <input type="text" name="email" ngModel/>
         </div>
         <div class="item">
           <p>Telephone number where you can be reached</p>
-          <input type="text" name="name"/>
+          <input type="text" name="mobile" ngModel/>
         </div>
         <div class="item">
           <p>Request Date</p>
-          <input type="date" name="name" required/>
+          <input type="date" name="date" required ngModel/>
           <i class="fas fa-calendar-alt"></i>
         </div>
         
         <div class="item">
           <p>What best describes the type of problem encountered</p>
-          <select>
+          <select ngModel name="type">
            
-                <option value=""></option>
-                <option value="1">Credit and Debit Cards</option>
-                <option value="2">Deposit</option>
-                <option value="3">Housing and Renovation Loan</option>
-                <option value="4">iBanking</option>
-                <option value="5">Treasures</option>
+                <!-- <option value=""></option> -->
+                <option value="Credit and Debit Cards">Credit and Debit Cards</option>
+                <option value="Deposit">Deposit</option>
+                <option value="Housing and Renovation Loan">Housing and Renovation Loan</option>
+                <option value="iBanking">iBanking</option>
+                <option value="Treasures">Treasures</option>
               </select>
           
         </div>
@@ -45,7 +45,7 @@
         
         <div class="item">
           <p>What happened? Be as specific as possible, including dates, names, etc.</p>
-          <textarea rows="5"></textarea>
+          <textarea rows="5" ngModel name="desc" ></textarea>
         </div>
         <div class="btn-block">
           <button type="submit" href="/">Send Complaint</button>
