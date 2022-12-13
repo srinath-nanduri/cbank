@@ -76,6 +76,28 @@ export class SettComponent implements OnInit {
     
   }
 
+  changePinSubmit(){
+    let id = this.cookSer.get('userid');
+    let cPin = this.setPin.get('currPin')?.value
+    let nPin = this.setPin.get('newPin')?.value
+
+    console.log(cPin,nPin)
+
+    this.httpClient.pinChange(id,cPin,nPin).subscribe(response =>{
+      console.log(response)
+    })
+  }
+
+  changeStatusSubmit(){
+    let id = this.cookSer.get('userid');
+    let cPin = this.blockCard.get('currPin')?.value
+
+    this.httpClient.statusChange(id,cPin).subscribe(response =>{
+      console.log(response)
+    })
+
+  }
+
   
   changePassSubmit(){
     let id= this.cookSer.get('userid') ;

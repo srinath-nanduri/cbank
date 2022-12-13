@@ -51,7 +51,9 @@
                     class="btn button-1 btn-sm float-end" 
                     name="submit" 
                     type="submit" 
-                    [disabled]="setPin.invalid">
+                    [disabled]="setPin.invalid"
+                    (click)='changePinSubmit()'
+                    >
                         Submit
                     </button>
                     </form>
@@ -68,7 +70,9 @@
                     class="btn button-1 btn-sm float-end" 
                     name="submit" 
                     type="submit" 
-                    [disabled]="blockCard.invalid">
+                    [disabled]="blockCard.invalid"
+                    (click)='changeStatusSubmit()'
+                    >
                         Submit
                     </button>
 

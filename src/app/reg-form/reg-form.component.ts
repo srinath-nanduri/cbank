@@ -23,11 +23,18 @@ export class RegFormComponent implements OnInit {
   //regForm vars
   isRegistered = false
   myDate = new Date();
-  customer1:Customer = new Customer("","","","",this.myDate,"","","","","","","","");
+  customer1:Customer = new Customer("","","","","",this.myDate,"","","","","","","","");
 
 
   // 
+  randomString() {
 
+    let chars='0123456789';
+    var result = '';
+    for (var i = 10; i > 0; --i) result += chars[Math.floor(Math.random() * chars.length)];
+    return result;
+
+}
 
 
 
@@ -100,6 +107,7 @@ export class RegFormComponent implements OnInit {
 
   onSubmit() {
     // Get the data from the form
+    this.customer1.crn = this.randomString()
     this.customer1.cgender = this.regForm.get('gender')?.value
     this.customer1.cdob=this.regForm.get('dob')?.value
     this.customer1.cfname=this.regForm.get('fname')?.value

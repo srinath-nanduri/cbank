@@ -94,6 +94,7 @@ export class Transactions{
 
 export class Customer{
   constructor(
+    public crn:string,
     public cfname:string,
     public clname:string,
     public cmobile:string,
@@ -166,6 +167,14 @@ export class HttpClientService {
 
   mobileChange(id:string,currentMobile:string,newMobile:string){
     return this.httpClient.get<Customer>('http://localhost:4141/mobileval/'+id+'/'+currentMobile+'/'+newMobile)
+  }
+
+  pinChange(id:string,currentPin:string,newPin:string){
+    return this.httpClient.get<Accounts>('http://localhost:4141/pinVal/'+id+'/'+currentPin+'/'+newPin)
+  }
+
+  statusChange(id:string,currentPin:string){
+    return this.httpClient.get<Accounts>('http://localhost:4141/statusVal/'+id+'/'+currentPin)
   }
 
   
