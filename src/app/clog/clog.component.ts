@@ -107,6 +107,7 @@ export class ClogComponent implements OnInit {
       this.cookSer.set('logcorr','true');
       let t = <string>d;
       this.cookSer.set('user',t);
+      this.cookSer.set('email',email);
       this.cookSer.set('userid',<string>this.vals[1]);
       this._router.navigateByUrl('/dash');
     }

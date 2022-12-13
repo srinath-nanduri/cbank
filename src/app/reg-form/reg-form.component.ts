@@ -1,6 +1,6 @@
 
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder,FormGroup,Validators} from '@angular/forms';
+import {FormBuilder,FormGroup,Validators,AbstractControl,Validator} from '@angular/forms';
 import { Aadhar, HttpClientService,Customer } from '../http-client.service';
 
 @Component({
@@ -48,11 +48,10 @@ export class RegFormComponent implements OnInit {
       dob:[Date,Validators.required],
       gender:['',Validators.required],
       createPass:['',Validators.required],
-      confirmPass:['',Validators.required],
-      state:['',Validators.required],
       annualIncome:['',Validators.required],
       companybusinessName:['',Validators.required],
-      termsAndCond:['',Validators.requiredTrue]
+      termsAndCond:['',Validators.requiredTrue],
+      confirmPass:['',Validators.required]
     })
     
     
@@ -68,44 +67,83 @@ export class RegFormComponent implements OnInit {
   ngOnInit(): void {
   }
   
+   
   
   verifyAadhar() {
+
+
+    var aadharValue = this.aadharForm.get('Aadhar')?.value;
+    var mobileValue = this.aadharForm.get('mobile')?.value;
+    var emailValue = this.aadharForm.get('email')?.value;
+    var panValue = this.aadharForm.get('PAN')?.value;
+   
+
+    this.customer1.caadhar=this.aadharForm.get('Aadhar')?.value;
+    this.customer1.cmobile= this.aadharForm.get('mobile')?.value;
+    this.customer1.cemail=this.aadharForm.get('email')?.value;
+    this.customer1.cpan = this.aadharForm.get('PAN')?.value;
+
+
     this.httpClientService.valAadhar().subscribe(response => {
       // Process the response data here
       this.aadhar = response;
-      
-      var aadharValue = this.aadharForm.get('Aadhar')?.value;
-      var mobileValue = this.aadharForm.get('mobile')?.value;
-      var emailValue = this.aadharForm.get('email')?.value;
-      var panCard = this.aadharForm.get('PAN')?.value;
-      this.isVerified = this.aadhar.some(obj => obj.aadhar==aadharValue && obj.mobile==mobileValue)
+      this.isVerified = this.aadhar.some(obj => obj.aadhar==aadharValue && obj.mobile==mobileValue && obj.email==emailValue && obj.pan==panValue)
       this.showVerificationError = !this.isVerified
-
-      this.customer1.caadhar=this.aadharForm.get('Aadhar')?.value;
-      this.customer1.cmobile= this.aadharForm.get('mobile')?.value;
-      this.customer1.cemail=this.aadharForm.get('email')?.value;
-      this.customer1.cpan = this.aadharForm.get('PAN')?.value;
-
+      
       console.log("Error " + this.showVerificationError)
       console.log(this.isVerified)
       console.log(aadharValue)
       console.log(this.aadhar)
     }); 
+    
   }
 
   onSubmit() {
     // Get the data from the form
+    this.customer1.cgender = this.regForm.get('gender')?.value
+    this.customer1.cdob=this.regForm.get('dob')?.value
+    this.customer1.cfname=this.regForm.get('fname')?.value
+    this.customer1.clname=this.regForm.get('lname')?.value
+    this.customer1.cpass=this.regForm.get('confirmPass')?.value
+    this.customer1.cgrossincome=this.regForm.get('annualIncome')?.value
+    this.customer1.cplaceofwork=this.regForm.get('companybusinessName')?.value
+    this.customer1.csoi=this.regForm.get('SOI')?.value
+    this.customer1.coccupation=this.regForm.get('occupation')?.value
+
+    //
+    let createPassValue = this.regForm.get('createPass')?.value
+    let currentPassValue = this.regForm.get('confirmPass')?.value
+    
+    if(currentPassValue!=createPassValue){
+      alert('Passwords are not same')
+      this.isRegistered= false
+      console.log(currentPassValue)
+      console.log(createPassValue)
+    }
+        
     
   
-    // Create a new customer object from the data
-    this.customer1.cgender = this.regForm.get('gender')?.value
-  
     // Use the HttpClient to make a POST request to your backend
+    
+    else{
+
+    
+    {
+      this.isRegistered=true
     this.httpClientService.regInsert(this.customer1).subscribe(response => 
       {
         alert("Data sent successfully")
-        this.isRegistered = true
       })
+
+
+      
+    
+    
+    }
+  }
+  
+
+
     }
 
 }

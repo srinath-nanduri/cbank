@@ -14,6 +14,11 @@ export class SettComponent implements OnInit {
   limitForm:FormGroup
   setPin:FormGroup
   blockCard:FormGroup
+
+  name!:string;
+  email!:string;
+  id!:string;
+
   constructor(private cookSer:CookieService, private _router: Router,private formBuilder:FormBuilder) { 
     this.limitForm=formBuilder.group({
       newLimit:['1000',Validators.required],
@@ -32,6 +37,11 @@ export class SettComponent implements OnInit {
   
 
   ngOnInit(): void {
+
+    this.name=this.cookSer.get("user");
+    this.email=this.cookSer.get("email");
+    this.id = this.cookSer.get("userid");
+
   }
 
 

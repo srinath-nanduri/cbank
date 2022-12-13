@@ -5,7 +5,9 @@ import { Observable } from 'rxjs';
 export class Aadhar{
   constructor(
     public mobile:string,
-    public aadhar:string
+    public aadhar:string,
+    public email:string,
+    public pan:string
   )
   {}
 }
