@@ -100,8 +100,6 @@ export class ClogComponent implements OnInit {
       response =>{this.vals=response;},
      );
 
-    console.log(this.vals);
-
     if(this.vals[2]=="true"){
       let d:String = this.vals[0];
       this.cookSer.set('logcorr','true');
@@ -110,6 +108,11 @@ export class ClogComponent implements OnInit {
       this.cookSer.set('email',email);
       this.cookSer.set('userid',<string>this.vals[1]);
       this._router.navigateByUrl('/dash');
+      this.lc=false;
+    }
+
+    else if(this.vals[2]=="false"){
+      this.lc=true;
     }
     
 

@@ -45,6 +45,10 @@ export class AccountsComponent implements OnInit {
     
   }
 
+  reloadCurrentPage() {
+    window.location.reload();
+   }
+
 
   valFlag(f:boolean){
     if(f==true){
@@ -86,6 +90,7 @@ export class AccountsComponent implements OnInit {
     this.httpClientService.addAcc(this.nacc).subscribe(data =>{
 
       alert("Account Created Successfully");
+      this.reloadCurrentPage();
   
     });
 
