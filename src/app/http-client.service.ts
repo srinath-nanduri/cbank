@@ -177,5 +177,9 @@ export class HttpClientService {
     return this.httpClient.get<Accounts>('http://localhost:4141/statusVal/'+id+'/'+currentPin)
   }
 
+  limitChange(id:string,currentPin:string,newlimit:number){
+    return this.httpClient.get<Accounts>('http://localhost:4141/limitVal/'+id+'/'+currentPin + '/' + newlimit)
+  }
+
   
 }

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 import {Form, FormBuilder,FormGroup,Validators} from '@angular/forms';
-import { HttpClientService,Customer } from '../http-client.service';
+import { HttpClientService,Customer, Accounts } from '../http-client.service';
 
 
 @Component({
@@ -23,6 +23,7 @@ export class SettComponent implements OnInit {
   email!:string;
   id!:string;
   customer!:Customer
+  currentLimit!:Accounts
 
   constructor(private cookSer:CookieService, private _router: Router,private formBuilder:FormBuilder,private httpClient:HttpClientService) { 
     this.limitForm=formBuilder.group({
@@ -64,6 +65,8 @@ export class SettComponent implements OnInit {
     this.name=this.cookSer.get("user");
     this.email=this.cookSer.get("email");
     this.id = this.cookSer.get("userid");
+    
+    
 
   }
 
@@ -76,6 +79,19 @@ export class SettComponent implements OnInit {
     
   }
 
+  changeLimitSubmit(){
+    let id = this.cookSer.get('userid');
+    let newLimit = this.limitForm.get('newLimit')?.value
+    let cPin = this.limitForm.get('PIN')?.value
+    console.log(cPin)
+
+    this.httpClient.limitChange(id,cPin,newLimit).subscribe(response =>{
+      console.log(response)
+      alert('New Limit Set!')
+    })
+  }
+
+
   changePinSubmit(){
     let id = this.cookSer.get('userid');
     let cPin = this.setPin.get('currPin')?.value
@@ -85,6 +101,7 @@ export class SettComponent implements OnInit {
 
     this.httpClient.pinChange(id,cPin,nPin).subscribe(response =>{
       console.log(response)
+      alert('Pin Changed')
     })
   }
 
@@ -94,6 +111,7 @@ export class SettComponent implements OnInit {
 
     this.httpClient.statusChange(id,cPin).subscribe(response =>{
       console.log(response)
+      alert('Status Changed')
     })
 
   }
@@ -118,6 +136,7 @@ export class SettComponent implements OnInit {
     let id = this.cookSer.get('userid')
     let cemail = this.changeEmail.get('currEmail')?.value
     let nemail = this.changeEmail.get('newEmail')?.value
+    this.cookSer.set("email", nemail);
 
     console.log(cemail,nemail)
     this.httpClient.emailChange(id,cemail,nemail).subscribe(response =>{

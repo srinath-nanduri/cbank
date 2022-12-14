@@ -12,7 +12,7 @@ export class RegFormComponent implements OnInit {
 // form and service decl
   aadharForm:FormGroup
   regForm:FormGroup
-  accForm:FormGroup
+ 
   
 
   //aadharForm vars
@@ -61,12 +61,6 @@ export class RegFormComponent implements OnInit {
       confirmPass:['',Validators.required]
     })
     
-    
-    
-
-    this.accForm=this.formBuilder.group({
-      accType:['',Validators.required]
-    })
    }
 
   

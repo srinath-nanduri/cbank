@@ -1,6 +1,8 @@
 <section class="mx-auto">
     <div class="container">
-        <div class="header">Enter details to start your journey now!</div>
+        <div class="header">Enter details to start your journey now!
+            <div class="route">Already registered?<a routerLink='/clog' class="signin"> Sign in here</a></div>
+        </div>
         <hr>
         <form [formGroup]="aadharForm">
             <div class="row">
@@ -221,6 +223,7 @@
                 type="submit" 
                 [disabled]="regForm.invalid"
                 (click)="onSubmit()"
+                routerLink='/clog'
                 >
                 
                     Proceed to Open Account
@@ -228,44 +231,7 @@
         </form>
     </div>
             
-        <div class="hidden" [hidden] = '!isRegistered'>
-        <form [formGroup]="accForm">
-            <div class="header small-pad"> Last Step ! Select type of <strong>product</strong></div>
-            <hr>
-                <div class="row">
-                    <div class="col-md gy-2">
-                        <input 
-                        class="form-check-input position-static left-radio" 
-                        type="radio" 
-                        name="accType"  
-                        value="25,000" 
-                        formControlName="accType"
-                        >
-                            <p class="radiotext">₹25,000 Savings Account</p>
-                    </div>
-                    <div class="col-md gy-2">
-                    <input 
-                        class="form-check-input position-static right-radio" 
-                        type="radio" 
-                        name="accType" 
-                        value="10,000" 
-                        formControlName="accType"
-                        >
-                            <p class="radiotext">₹10,000 Savings Account</p>
-                    </div>
-                </div>
-                <button
-                class="btn button-2 btn-md me-5 float-end" 
-                name="submit" 
-                type="submit" 
-                [disabled]="accForm.invalid"
-                
-                >
-                    Open Account !
-            </button>
-        </form>
-        </div> 
-        
+       
        
         
     <div class="pad"></div>

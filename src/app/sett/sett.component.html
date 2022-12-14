@@ -29,7 +29,9 @@
                     class="btn button-1 btn-sm" 
                     name="submit" 
                     type="submit" 
-                    [disabled]="limitForm.invalid">
+                    [disabled]="limitForm.invalid"
+                    (click)='changeLimitSubmit()'
+                    >
                         Submit
                     </button>
                     </form>
