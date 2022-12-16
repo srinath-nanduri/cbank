@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
-import { Acc, Accounts, HttpClientService, Transactions } from '../http-client.service';
+import { Acc, Accounts, HttpClientService, Payment, Transactions } from '../http-client.service';
 
 @Component({
   selector: 'app-accounts',
@@ -18,6 +18,13 @@ export class AccountsComponent implements OnInit {
   flag!:boolean;
   f2!:string;
   temp:string = this.cookSer.get("user");
+
+  p:Payment={
+    id:0,
+    raccno:"",
+    amt:0.0,
+    pin:""
+  }
 
   // user!:string;
   user = this.temp.charAt(0).toUpperCase() + this.temp.slice(1);
@@ -93,6 +100,25 @@ export class AccountsComponent implements OnInit {
       this.reloadCurrentPage();
   
     });
+
+  }
+
+  pay(form: NgForm){
+
+    this.p.id = this.cookSer.get("userid") as unknown as number;
+
+    this.p.raccno = form.value.raccno;
+
+    this.p.amt = form.value.amt as unknown as number;
+
+    this.p.pin = form.value.pin;
+
+    this.httpClientService.makePayment(this.p).subscribe(
+      response => {
+        alert(response);
+        // alert("Money Sent!");
+      });
+
 
   }
 

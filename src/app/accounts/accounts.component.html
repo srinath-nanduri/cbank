@@ -51,37 +51,37 @@
 
 
     <!-- Button trigger modal -->
-<!-- <div class="mx-auto" style="width: fit-content;">
+<div class="mx-auto" style="width: fit-content;">
 <button type="button"  class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
   Pay
 </button>
-</div> -->
+</div>
 
 <!-- Modal -->
-<!-- <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Payment Details</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form #logForm="ngForm" (ngSubmit)="submit(logForm)" novalidate>
-          Account No. : <input class="input" type="text" name="raccno" ngModel required #user="ngModel" autocomplete="off"> 
+        <form #payForm="ngForm" (ngSubmit)="pay(payForm)" novalidate>
+          Receiver Account No. : <input class="input" type="text" name="raccno" ngModel required autocomplete="off"> 
           
           <br><br>
-          Amount : <input name="pay" class="input" type="text" ngModel>
+          Amount : <input name="amt" class="input" type="text" ngModel>
       
           <br><br>
           Pin : <input name="pin" class="input" type="text" ngModel>
           
            <br><br>
-          <button class="btn btn-primary">Submit</button> 
+          <button class="btn btn-primary" data-bs-dismiss="modal">Submit</button> 
         </form>
       </div>
     </div>
   </div>
-</div> -->
+</div> 
 
 
 

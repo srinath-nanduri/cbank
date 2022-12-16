@@ -92,6 +92,18 @@ export class Transactions{
 }
 
 
+export class Payment{
+  constructor(
+    public id:number,
+    public raccno:string,
+    public amt:number,
+    public pin:string
+  ){
+
+  }
+}
+
+
 export class Customer{
   constructor(
     public crn:string,
@@ -179,6 +191,10 @@ export class HttpClientService {
 
   limitChange(id:string,currentPin:string,newlimit:number){
     return this.httpClient.get<Accounts>('http://localhost:4141/limitVal/'+id+'/'+currentPin + '/' + newlimit)
+  }
+
+  makePayment(p:Payment){
+    return this.httpClient.post<Payment>('http://localhost:4141/makePayment', p);
   }
 
   
