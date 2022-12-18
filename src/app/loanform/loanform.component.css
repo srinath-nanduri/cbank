@@ -4,6 +4,7 @@ h2{
   text-align: center;
 }
 .container {
+  background-color: white;
   margin-left:190px;
   margin-right:150px;
   padding: 20px;
