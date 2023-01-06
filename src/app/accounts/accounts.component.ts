@@ -1,3 +1,4 @@
+import { DatePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -75,7 +76,11 @@ export class AccountsComponent implements OnInit {
 
 
   this.httpClientService.getTranDetail(this.id).subscribe(
-    response =>{this.trans=response;},
+    response =>{
+      
+      this.trans=response;
+
+    },
    );
 
    this.httpClientService.getAccDetails(this.id).subscribe(
@@ -116,6 +121,7 @@ export class AccountsComponent implements OnInit {
     this.httpClientService.makePayment(this.p).subscribe(
       response => {
         alert(response);
+        this.reloadCurrentPage();
         // alert("Money Sent!");
       });
 

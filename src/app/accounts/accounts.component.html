@@ -34,7 +34,7 @@
       <tbody>
         <tr *ngFor="let t of trans">
           <!-- <th scope="row">{{t.id}}</th> -->
-          <td> {{t.tdate}} </td>
+          <td> {{t.tdate | date }} </td>
           <td> {{t.ttime}} </td>
           <td> {{t.twithdraw}} </td>
           <td> {{t.tdeposit}} </td>

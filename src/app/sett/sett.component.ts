@@ -132,6 +132,10 @@ export class SettComponent implements OnInit {
         })
   }
 
+  reloadCurrentPage() {
+    window.location.reload();
+   }
+
   changeEmailSubmit(){
     let id = this.cookSer.get('userid')
     let cemail = this.changeEmail.get('currEmail')?.value
@@ -160,6 +164,7 @@ export class SettComponent implements OnInit {
     this.cookSer.set('logcorr', 'false');
     this.cookSer.set('user', 'User');
     this._router.navigateByUrl('/dash');
+    this.reloadCurrentPage();
     // this.d = this.cookSer.get('logcorr');
     
   }

@@ -83,8 +83,8 @@ export class Transactions{
   constructor(
     public id:number,
     public cid:number,
-    public tdate:String,
-    public ttime:String,
+    public tdate:string,
+    public ttime:string,
     public twithdraw:number,
     public tdeposit:number,
     public tbalance: number
@@ -195,6 +195,10 @@ export class HttpClientService {
 
   makePayment(p:Payment){
     return this.httpClient.post<Payment>('http://localhost:4141/makePayment', p);
+  }
+
+  sendEmail(){
+    return this.httpClient.get<string>('http://localhost:4141/makePayment');
   }
 
   

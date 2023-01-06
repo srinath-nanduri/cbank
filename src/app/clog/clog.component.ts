@@ -89,8 +89,6 @@ export class ClogComponent implements OnInit {
   //   }
   // }
 
-
-
   submit(form: NgForm){
 
     let email = form.value.user;

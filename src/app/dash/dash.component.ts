@@ -23,6 +23,10 @@ export class DashComponent implements OnInit {
     // return 1;
   }
 
+  reloadCurrentPage() {
+    window.location.reload();
+   }
+
   // disp = this.logc.getLog();
 
   setC(){
@@ -35,7 +39,9 @@ export class DashComponent implements OnInit {
 
 
   ngOnInit(): void {
+    // this.reloadCurrentPage();
     this.user = this.cookSer.get("user");
+
   }
 
 
